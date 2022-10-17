@@ -1,0 +1,10 @@
+{
+  "name": "the-hose",
+  "version": "0.0.1",
+  "main": "main.js",
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "koilib": "^5.1.1"
+  }
+}
