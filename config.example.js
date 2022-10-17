@@ -1,24 +1,11 @@
-# the-hose
-A tool to generate tons of transfers :)
+/* eslint-disable no-multi-spaces */
+import { utils } from 'koilib'
 
-## installation
-
-- install NodeJS 16+
-- download this repository
-- install packages (`yarn install` or `npm install`)
-
-## instructions
-
-- Rename `config.example.js` to `config.js`
-- Open file `config.js` and add the configurations you want to use to generate the transactions.
-
-Configuration example:
-```js
 export const configs = [
   {
     rpcs: ['https://api.koinos.io'],                            // rpc urls to submit the transactions
     nbMaxTransactions: Number.MAX_SAFE_INTEGER,                 // number maximum of transactions to generate
-    wif: '5KKuMC.............',                                 // wif of the account
+    wif: '5KKuMC.......................',                       // wif of the account
     rcLimit: '100000000',                                       // rc limit for each transaction
     contractId: '19JntSm8pSNETT9aHTwAUHC5RMoaSmgZPJ',           // id of the contract to call
     abi: utils.tokenAbi,                                        // abi of the contract to call
@@ -32,7 +19,7 @@ export const configs = [
   {
     rpcs: ['https://api.koinos.io'],
     nbMaxTransactions: Number.MAX_SAFE_INTEGER,
-    wif: '5Kff...................',
+    wif: '5KffRuAt................',
     rcLimit: '100000000',
     contractId: '19JntSm8pSNETT9aHTwAUHC5RMoaSmgZPJ',
     abi: utils.tokenAbi,
@@ -44,4 +31,3 @@ export const configs = [
     }
   }
 ]
-```

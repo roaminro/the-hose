@@ -6,5 +6,16 @@
   "license": "MIT",
   "dependencies": {
     "koilib": "^5.1.1"
+  },
+  "scripts": {
+    "lint": "eslint --max-warnings 0 ./**/*.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.25.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.0"
   }
 }
