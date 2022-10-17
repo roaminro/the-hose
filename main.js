@@ -1,5 +1,5 @@
 import { Worker } from 'worker_threads'
-import { configs } from './config'
+import { configs } from './config.js'
 
 // store the workers
 const workers = []
