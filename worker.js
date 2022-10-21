@@ -10,7 +10,8 @@ const {
   contractId,
   func,
   args,
-  abi
+  abi,
+  payer
 } = workerData
 
 const provider = new Provider(rpcs)
@@ -23,6 +24,9 @@ const contract = new Contract({
   provider,
   signer
 })
+
+const finalPayer = payer || signer.address
+const payee = payer ? signer.address : undefined
 
 const chainId = await provider.getChainId()
 
@@ -54,10 +58,12 @@ for (let index = 0; index < nbMaxTransactions; index++) {
     const { transaction, receipt } = await contract.functions[func](args, {
       rcLimit,
       nonce: b64Nonce,
-      chainId
+      chainId,
+      payer: finalPayer,
+      ...(payee && { payee })
     })
 
-    console.log(`${signer.address}: tx #${index} / id ${transaction.id} / mana: disk ${receipt.disk_storage_used ?? 0} | compute ${receipt.compute_bandwidth_used ?? 0} | network ${receipt.network_bandwidth_used ?? 0}`)
+    console.log(`${signer.address}: tx #${index} / id ${transaction.id} / rc_used: ${receipt.rc_used} / mana: disk ${receipt.disk_storage_used ?? 0} | compute ${receipt.compute_bandwidth_used ?? 0} | network ${receipt.network_bandwidth_used ?? 0}`)
   } catch (error) {
     // if errors out just retry
     console.log(`${signer.address}:`, error)

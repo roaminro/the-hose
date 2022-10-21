@@ -7,6 +7,7 @@ export const configs = [
     nbMaxTransactions: Number.MAX_SAFE_INTEGER,                 // number maximum of transactions to generate
     wif: '5KKuMC.......................',                       // wif of the account
     rcLimit: '100000000',                                       // rc limit for each transaction
+    payer: '1LZgKPHVLqrVv418UbFCymU5NNwSG2sUpm',                // optional: set a payer for the rc
     contractId: '19JntSm8pSNETT9aHTwAUHC5RMoaSmgZPJ',           // id of the contract to call
     abi: utils.tokenAbi,                                        // abi of the contract to call
     func: 'transfer',                                           // name of the contract function to call
